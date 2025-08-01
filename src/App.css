@@ -1,0 +1,352 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Cobalt Blue Color Palette */
+  --color-cobalt-blue: #0047AB;
+  --color-cobalt-blue-light: #1E5FBF;
+  --color-cobalt-blue-dark: #003A8C;
+  --color-accent-gold: #F59E0B;
+  --color-page-bg: #F9F9F9;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Cobalt Blue Color Palette */
+  --background: #F9F9F9; /* Light Gray Page Background */
+  --foreground: #1F2937; /* Dark Gray Text */
+  --card: #FFFFFF; /* White Cards */
+  --card-foreground: #1F2937; /* Dark Gray Text */
+  --popover: #FFFFFF;
+  --popover-foreground: #1F2937;
+  --primary: #0047AB; /* Cobalt Blue */
+  --primary-foreground: #FFFFFF; /* White */
+  --secondary: #F3F4F6; /* Light Gray */
+  --secondary-foreground: #1F2937; /* Dark Gray */
+  --muted: #9CA3AF; /* Medium Gray */
+  --muted-foreground: #6B7280; /* Gray */
+  --accent: #F59E0B; /* Amber/Gold */
+  --accent-foreground: #1F2937; /* Dark Gray */
+  --destructive: #EF4444; /* Red */
+  --border: #E5E7EB; /* Light Gray Border */
+  --input: #FFFFFF; /* White Input */
+  --ring: #0047AB; /* Cobalt Blue Ring */
+  --chart-1: #0047AB;
+  --chart-2: #F59E0B;
+  --chart-3: #10B981;
+  --chart-4: #8B5CF6;
+  --chart-5: #F97316;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1F2937;
+  --sidebar-primary: #0047AB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F59E0B;
+  --sidebar-accent-foreground: #1F2937;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #0047AB;
+}
+
+.dark {
+  --background: #111827; /* Dark Gray */
+  --foreground: #F9FAFB; /* Light Gray */
+  --card: #1F2937;
+  --card-foreground: #F9FAFB;
+  --popover: #1F2937;
+  --popover-foreground: #F9FAFB;
+  --primary: #3B82F6; /* Lighter Blue for Dark Mode */
+  --primary-foreground: #FFFFFF;
+  --secondary: #374151;
+  --secondary-foreground: #F9FAFB;
+  --muted: #374151;
+  --muted-foreground: #9CA3AF;
+  --accent: #F59E0B;
+  --accent-foreground: #1F2937;
+  --destructive: #EF4444;
+  --border: #374151;
+  --input: #374151;
+  --ring: #3B82F6;
+  --chart-1: #3B82F6;
+  --chart-2: #F59E0B;
+  --chart-3: #10B981;
+  --chart-4: #8B5CF6;
+  --chart-5: #F97316;
+  --sidebar: #1F2937;
+  --sidebar-foreground: #F9FAFB;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F59E0B;
+  --sidebar-accent-foreground: #1F2937;
+  --sidebar-border: #374151;
+  --sidebar-ring: #3B82F6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Lato', sans-serif;
+    background-color: #F9F9F9; /* Ensure page background is always light gray */
+    font-size: 14px; /* Optimized font size for better content display */
+    line-height: 1.5;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+  }
+  h1 { font-size: 1.875rem; line-height: 2.25rem; } /* 30px */
+  h2 { font-size: 1.5rem; line-height: 2rem; } /* 24px */
+  h3 { font-size: 1.25rem; line-height: 1.75rem; } /* 20px */
+  h4 { font-size: 1.125rem; line-height: 1.75rem; } /* 18px */
+  h5 { font-size: 1rem; line-height: 1.5rem; } /* 16px */
+  h6 { font-size: 0.875rem; line-height: 1.25rem; } /* 14px */
+  p { font-size: 0.875rem; line-height: 1.5rem; } /* 14px */
+  small { font-size: 0.75rem; line-height: 1rem; } /* 12px */
+}
+
+/* Cobalt Blue Custom Classes */
+.cobalt-gradient {
+  background: linear-gradient(135deg, #0047AB 0%, #1E5FBF 100%);
+}
+
+.cobalt-gradient-dark {
+  background: linear-gradient(135deg, #003A8C 0%, #0047AB 100%);
+}
+
+.header-white {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.page-bg {
+  background-color: #F9F9F9;
+}
+
+.crisp-card {
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.crisp-card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transform: translateY(-1px);
+}
+
+.cobalt-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 71, 171, 0.1), 0 2px 4px -1px rgba(0, 71, 171, 0.06);
+}
+
+.cobalt-border {
+  border: 1px solid #0047AB;
+}
+
+.btn-cobalt {
+  background: linear-gradient(135deg, #0047AB 0%, #1E5FBF 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-size: 0.875rem; /* 14px */
+}
+
+.btn-cobalt:hover {
+  background: linear-gradient(135deg, #003A8C 0%, #0047AB 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.nav-item-cobalt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #6B7280;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.8125rem; /* 13px - Optimized for more content */
+}
+
+.nav-item-cobalt:hover {
+  background-color: #F3F4F6;
+  color: #0047AB;
+}
+
+.nav-item-cobalt.active {
+  background-color: #0047AB;
+  color: white;
+}
+
+.profile-card-cobalt {
+  background: linear-gradient(135deg, #0047AB 0%, #1E5FBF 100%);
+  color: white;
+  text-align: center;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.badge-cobalt {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 6px;
+  border-radius: 12px;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  background-color: #0047AB;
+  color: white;
+}
+
+.badge-verified {
+  background-color: #10B981;
+  color: white;
+}
+
+.badge-gold {
+  background-color: #F59E0B;
+  color: white;
+}
+
+.progress-bar-cobalt {
+  width: 100%;
+  height: 6px;
+  background-color: #E5E7EB;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill-cobalt {
+  height: 100%;
+  background: linear-gradient(90deg, #0047AB 0%, #1E5FBF 100%);
+  transition: width 0.3s ease;
+}
+
+.search-bar-cobalt {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 14px;
+  border: 1px solid #D1D5DB;
+  border-radius: 24px;
+  background-color: #F9F9F9;
+  font-size: 0.875rem; /* 14px */
+  transition: all 0.2s ease;
+}
+
+.search-bar-cobalt:focus {
+  outline: none;
+  border-color: #0047AB;
+  box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+}
+
+/* Logo styles */
+.logo-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Utility classes for cobalt theme */
+.text-cobalt { color: #0047AB; }
+.bg-cobalt { background-color: #0047AB; }
+.border-cobalt { border-color: #0047AB; }
+.text-page-bg { color: #F9F9F9; }
+.bg-page-bg { background-color: #F9F9F9; }
+
+/* Compact sidebar styles */
+.sidebar-compact {
+  padding: 16px;
+  font-size: 0.8125rem; /* 13px */
+}
+
+.sidebar-compact h3 {
+  font-size: 1rem; /* 16px */
+  margin-bottom: 12px;
+}
+
+.sidebar-compact .sidebar-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #F3F4F6;
+  font-size: 0.8125rem; /* 13px */
+}
+
+.sidebar-compact .sidebar-item:last-child {
+  border-bottom: none;
+}
+
+/* Enhanced content density */
+.content-dense {
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.content-dense p {
+  margin-bottom: 8px;
+}
+
+.content-dense .post-meta {
+  font-size: 0.75rem; /* 12px */
+  color: #6B7280;
+}
+
+/* Professional icon styles */
+.icon-professional {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+}
+
+.icon-professional-lg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.5;
+}
+
